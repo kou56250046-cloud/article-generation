@@ -72,6 +72,41 @@ GEMINI_API_KEY=
 VERCEL_TOKEN=
 ```
 
+## 物語化 Skills
+
+このプロジェクトは難解な理論書を師匠と弟子の対話形式の物語に変換するシステムです。
+
+### 利用可能な Skills
+
+| コマンド | ファイル | 用途 |
+|---------|---------|------|
+| `/process` | `.claude/skills/process.md` | **メイン。** テキストを貼るだけで全工程自動実行 |
+| `/narrativize` | `.claude/skills/narrativize.md` | 物語化のみ単体実行 |
+| `/concept-extract` | `.claude/skills/concept-extract.md` | 概念整理のみ単体実行 |
+| `/chapter-split` | `.claude/skills/chapter-split.md` | 章分割案の作成のみ |
+| `/story-review` | `.claude/skills/story-review.md` | 生成済み物語の品質チェック |
+
+### 基本ワークフロー
+
+```
+テキストを貼り付けて /process を実行
+  → AIが長さ・複雑さを判断
+  → 長い場合: chapter-splitで分割案を提示 → 確認後に続行
+  → 各話を narrativize で物語化
+  → story-review で品質チェック・自動修正
+  → content/stories/[slug]-ch[XX].md に自動保存
+  → git push でVercelに自動デプロイ
+```
+
+### キャラクター設定（固定）
+- **師匠**: 「〜じゃ」口調。比喩・たとえ話で真理を語る
+- **弟子**: 丁寧語。読者の疑問を代弁する
+- **舞台**: 迷い人の茶屋（時と空間の交差点）
+
+### 保存先
+- `content/stories/` — 生成した物語MDファイル
+- フロントマター形式: title, date, source, chapter, description
+
 ## コーディング規約
 
 - TypeScript strict モード
