@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --no-turbopack)",
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --no-turbopack --yes)",
+      "Read(//c/Users/kou56/projects/**)",
+      "Bash(npx create-next-app@latest article-generation-temp --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --no-turbopack --yes)",
+      "Bash(cp -r article-generation-temp/. \"Article-generation/\")",
+      "Bash(rm -rf article-generation-temp)",
+      "Bash(npm install *)",
+      "Bash(mkdir -p \"C:\\\\Users\\\\kou56\\\\projects\\\\Article-generation\\\\src\\\\app\\\\stories\\\\[slug]\")",
+      "Bash(mkdir -p \"C:\\\\Users\\\\kou56\\\\projects\\\\Article-generation\\\\.claude\\\\skills\")",
+      "Bash(npm run *)",
+      "mcp__github__create_repository",
+      "Bash(gh auth *)"
+    ]
+  }
+}
