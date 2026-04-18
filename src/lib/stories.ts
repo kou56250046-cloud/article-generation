@@ -11,6 +11,7 @@ export type StoryMeta = {
   source: string
   chapter: string
   description: string
+  collection: string
 }
 
 export type Story = StoryMeta & {
@@ -34,6 +35,7 @@ export function getAllStories(): StoryMeta[] {
         source: data.source ?? '',
         chapter: data.chapter ?? '',
         description: data.description ?? '',
+        collection: data.collection ?? '総序',
       } satisfies StoryMeta
     })
     .sort((a, b) => (a.date < b.date ? 1 : -1))
@@ -53,6 +55,7 @@ export function getStoryBySlug(slug: string): Story | null {
     source: data.source ?? '',
     chapter: data.chapter ?? '',
     description: data.description ?? '',
+    collection: data.collection ?? '総序',
     content,
   }
 }

@@ -12,7 +12,8 @@
       "Bash(mkdir -p \"C:\\\\Users\\\\kou56\\\\projects\\\\Article-generation\\\\.claude\\\\skills\")",
       "Bash(npm run *)",
       "mcp__github__create_repository",
-      "Bash(gh auth *)"
+      "Bash(gh auth *)",
+      "Bash(npx vercel *)"
     ]
   }
 }

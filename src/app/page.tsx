@@ -1,51 +1,85 @@
-import Link from 'next/link'
+import { Suspense } from 'react'
 import { getAllStories } from '@/lib/stories'
+import HeroSection from '@/components/HeroSection'
+import TabNav from '@/components/TabNav'
+import StoryCard from '@/components/StoryCard'
 
-export default function HomePage() {
-  const stories = getAllStories()
+type Props = {
+  searchParams: Promise<{ tab?: string }>
+}
+
+const TABS = [
+  { label: '総  序', value: '総序' },
+]
+
+export default async function HomePage({ searchParams }: Props) {
+  const { tab } = await searchParams
+  const activeTab = tab ?? '総序'
+
+  const allStories = getAllStories()
+  const filtered = allStories
+    .filter((s) => s.collection === activeTab)
+    .filter((s) => s.slug !== 'sample')
+    .sort((a, b) => a.slug.localeCompare(b.slug))
 
   return (
-    <div>
-      <div className="mb-10">
-        <h1 className="text-3xl font-bold text-slate-800 mb-2">物語一覧</h1>
-        <p className="text-slate-500">師匠と弟子の対話で紐解く、真理への道</p>
+    <div className="min-h-screen bg-neutral-950">
+
+      {/* ヘッダー */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-neutral-950/80 backdrop-blur-md border-b border-white/5">
+        <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+          <a href="/" className="flex items-center gap-2 text-white font-bold tracking-widest text-sm hover:text-amber-400 transition-colors">
+            <span>🍵</span>
+            <span>迷い人の茶屋</span>
+          </a>
+        </div>
+      </header>
+
+      {/* ヒーロー */}
+      <div className="pt-14">
+        <HeroSection />
       </div>
 
-      {stories.length === 0 ? (
-        <div className="rounded-xl border border-dashed border-stone-300 bg-white p-12 text-center text-slate-400">
-          <p className="text-4xl mb-4">📜</p>
-          <p className="font-medium">まだ物語がありません</p>
-          <p className="text-sm mt-1">
-            <code className="bg-stone-100 px-1 rounded">/narrativize</code> で最初の物語を生成してください
-          </p>
+      {/* メインコンテンツ */}
+      <main className="max-w-6xl mx-auto px-6 py-12">
+
+        {/* タブナビゲーション */}
+        <Suspense fallback={null}>
+          <TabNav tabs={TABS} active={activeTab} />
+        </Suspense>
+
+        {/* コレクション情報 */}
+        <div className="mb-8">
+          <div className="flex items-baseline gap-4">
+            <h2 className="text-white text-xl font-bold tracking-wide">{activeTab}</h2>
+            <span className="text-white/30 text-sm">{filtered.length}話</span>
+          </div>
+          {activeTab === '総序' && (
+            <p className="text-white/40 text-sm mt-1">
+              原理講論 · 序文 — 人間の幸福・矛盾・真理を師匠と弟子が対話で紐解く
+            </p>
+          )}
         </div>
-      ) : (
-        <ul className="space-y-4">
-          {stories.map((story) => (
-            <li key={story.slug}>
-              <Link
-                href={`/stories/${story.slug}`}
-                className="block rounded-xl border border-stone-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-amber-300 transition-all"
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <h2 className="font-bold text-lg text-slate-800 mb-1">{story.title}</h2>
-                    {story.description && (
-                      <p className="text-slate-500 text-sm leading-relaxed">{story.description}</p>
-                    )}
-                  </div>
-                  <span className="text-amber-400 text-xl flex-shrink-0">→</span>
-                </div>
-                <div className="mt-3 flex gap-3 text-xs text-slate-400">
-                  {story.source && <span>📖 {story.source}</span>}
-                  {story.chapter && <span>{story.chapter}</span>}
-                  {story.date && <span>{story.date}</span>}
-                </div>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
+
+        {/* ストーリーグリッド */}
+        {filtered.length === 0 ? (
+          <div className="flex flex-col items-center justify-center py-24 text-white/20">
+            <span className="text-5xl mb-4">📜</span>
+            <p>まだ物語がありません</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filtered.map((story, i) => (
+              <StoryCard key={story.slug} story={story} index={i} />
+            ))}
+          </div>
+        )}
+      </main>
+
+      {/* フッター */}
+      <footer className="border-t border-white/5 mt-20 py-10 text-center text-white/20 text-xs tracking-widest">
+        <p>© 迷い人の茶屋 — 師匠と弟子の対話で学ぶ、真理の物語</p>
+      </footer>
     </div>
   )
 }
