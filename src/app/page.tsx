@@ -10,6 +10,7 @@ type Props = {
 
 const TABS = [
   { label: '総  序', value: '総序' },
+  { label: '創造原理', value: '創造原理' },
 ]
 
 export default async function HomePage({ searchParams }: Props) {
@@ -57,6 +58,11 @@ export default async function HomePage({ searchParams }: Props) {
           {activeTab === '総序' && (
             <p className="text-white/40 text-sm mt-1">
               原理講論 · 序文 — 人間の幸福・矛盾・真理を師匠と弟子が対話で紐解く
+            </p>
+          )}
+          {activeTab === '創造原理' && (
+            <p className="text-white/40 text-sm mt-1">
+              原理講論 · 創造原理 — 神の二性性相・被造世界の構造・万物の目的を解き明かす
             </p>
           )}
         </div>
