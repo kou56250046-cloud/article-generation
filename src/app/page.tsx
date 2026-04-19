@@ -14,6 +14,7 @@ const TABS = [
   { label: '堕落論', value: '堕落論' },
   { label: '終末論', value: '終末論' },
   { label: 'メシヤ論', value: 'メシヤ論' },
+  { label: '復活論', value: '復活論' },
 ]
 
 export default async function HomePage({ searchParams }: Props) {
@@ -81,6 +82,11 @@ export default async function HomePage({ searchParams }: Props) {
           {activeTab === 'メシヤ論' && (
             <p className="text-white/40 text-sm mt-1">
               原理講論 · メシヤ論 — 十字架の死は必然だったのか。洗礼ヨハネの不信とイエスの悲痛な心情を解き明かす
+            </p>
+          )}
+          {activeTab === '復活論' && (
+            <p className="text-white/40 text-sm mt-1">
+              原理講論 · 復活論 — 肉体の復活は本当に起きるのか。霊人の再臨と宗教統一まで、復活の真義を解き明かす
             </p>
           )}
         </div>
