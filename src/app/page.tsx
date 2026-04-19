@@ -18,6 +18,7 @@ const TABS = [
   { label: '予定論', value: '予定論' },
   { label: 'キリスト論', value: 'キリスト論' },
   { label: '復帰基台摂理時代', value: '復帰基台摂理時代' },
+  { label: 'モーセとイエス', value: 'モーセとイエスを中心とする復帰摂理' },
 ]
 
 export default async function HomePage({ searchParams }: Props) {
@@ -105,6 +106,11 @@ export default async function HomePage({ searchParams }: Props) {
           {activeTab === '復帰基台摂理時代' && (
             <p className="text-white/40 text-sm mt-1">
               原理講論 · 復帰基台摂理時代 — アダムの家庭から始まった復帰摂理。カイン・アベルの献祭が示す蕩減の原則を解き明かす
+            </p>
+          )}
+          {activeTab === 'モーセとイエスを中心とする復帰摂理' && (
+            <p className="text-white/40 text-sm mt-1">
+              原理講論 · モーセとイエスを中心とする復帰摂理 — ヤコブ・モーセ・イエスの三路程の対応。幕屋・三大試練・霊的カナン復帰から再臨まで
             </p>
           )}
         </div>
