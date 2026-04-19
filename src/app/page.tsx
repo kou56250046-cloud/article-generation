@@ -11,6 +11,7 @@ type Props = {
 const TABS = [
   { label: '総  序', value: '総序' },
   { label: '創造原理', value: '創造原理' },
+  { label: '堕落論', value: '堕落論' },
 ]
 
 export default async function HomePage({ searchParams }: Props) {
@@ -63,6 +64,11 @@ export default async function HomePage({ searchParams }: Props) {
           {activeTab === '創造原理' && (
             <p className="text-white/40 text-sm mt-1">
               原理講論 · 創造原理 — 神の二性性相・被造世界の構造・万物の目的を解き明かす
+            </p>
+          )}
+          {activeTab === '堕落論' && (
+            <p className="text-white/40 text-sm mt-1">
+              原理講論 · 堕落論 — 罪の根はどこにあるのか。サタンの正体と人間堕落の経緯を解き明かす
             </p>
           )}
         </div>
