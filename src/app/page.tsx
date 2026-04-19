@@ -12,6 +12,7 @@ const TABS = [
   { label: '総  序', value: '総序' },
   { label: '創造原理', value: '創造原理' },
   { label: '堕落論', value: '堕落論' },
+  { label: '終末論', value: '終末論' },
 ]
 
 export default async function HomePage({ searchParams }: Props) {
@@ -69,6 +70,11 @@ export default async function HomePage({ searchParams }: Props) {
           {activeTab === '堕落論' && (
             <p className="text-white/40 text-sm mt-1">
               原理講論 · 堕落論 — 罪の根はどこにあるのか。サタンの正体と人間堕落の経緯を解き明かす
+            </p>
+          )}
+          {activeTab === '終末論' && (
+            <p className="text-white/40 text-sm mt-1">
+              原理講論 · 終末論 — 終末とは何か。歴史の目的と再臨、そして今この時代を生きる意味を解き明かす
             </p>
           )}
         </div>
