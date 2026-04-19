@@ -16,6 +16,7 @@ const TABS = [
   { label: 'メシヤ論', value: 'メシヤ論' },
   { label: '復活論', value: '復活論' },
   { label: '予定論', value: '予定論' },
+  { label: 'キリスト論', value: 'キリスト論' },
 ]
 
 export default async function HomePage({ searchParams }: Props) {
@@ -93,6 +94,11 @@ export default async function HomePage({ searchParams }: Props) {
           {activeTab === '予定論' && (
             <p className="text-white/40 text-sm mt-1">
               原理講論 · 予定論 — すべては神が決めているのか。み旨・成就・人間への予定を三層に分けて解き明かす
+            </p>
+          )}
+          {activeTab === 'キリスト論' && (
+            <p className="text-white/40 text-sm mt-1">
+              原理講論 · キリスト論 — イエスは神か人間か。重生・三位一体・聖霊の正体まで、キリスト論の核心を解き明かす
             </p>
           )}
         </div>
