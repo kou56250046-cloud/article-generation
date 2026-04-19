@@ -17,6 +17,7 @@ const TABS = [
   { label: '復活論', value: '復活論' },
   { label: '予定論', value: '予定論' },
   { label: 'キリスト論', value: 'キリスト論' },
+  { label: '復帰基台摂理時代', value: '復帰基台摂理時代' },
 ]
 
 export default async function HomePage({ searchParams }: Props) {
@@ -99,6 +100,11 @@ export default async function HomePage({ searchParams }: Props) {
           {activeTab === 'キリスト論' && (
             <p className="text-white/40 text-sm mt-1">
               原理講論 · キリスト論 — イエスは神か人間か。重生・三位一体・聖霊の正体まで、キリスト論の核心を解き明かす
+            </p>
+          )}
+          {activeTab === '復帰基台摂理時代' && (
+            <p className="text-white/40 text-sm mt-1">
+              原理講論 · 復帰基台摂理時代 — アダムの家庭から始まった復帰摂理。カイン・アベルの献祭が示す蕩減の原則を解き明かす
             </p>
           )}
         </div>
