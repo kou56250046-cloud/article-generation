@@ -20,6 +20,7 @@ const TABS = [
   { label: '復帰基台摂理時代', value: '復帰基台摂理時代' },
   { label: 'モーセとイエス', value: 'モーセとイエスを中心とする復帰摂理' },
   { label: '復帰歴史の年数', value: '復帰歴史の各時代とその年数の形成' },
+  { label: '摂理的同時性', value: '摂理的同時性から見た復帰摂理時代と復帰摂理延長時代' },
 ]
 
 export default async function HomePage({ searchParams }: Props) {
@@ -117,6 +118,11 @@ export default async function HomePage({ searchParams }: Props) {
           {activeTab === '復帰歴史の各時代とその年数の形成' && (
             <p className="text-white/40 text-sm mt-1">
               原理講論 · 復帰歴史の各時代とその年数の形成 — なぜ歴史は同じ型で繰り返されるのか。象徴・形象・実体の三時代対応と、400年・210年・120年の摂理的構造を解き明かす
+            </p>
+          )}
+          {activeTab === '摂理的同時性から見た復帰摂理時代と復帰摂理延長時代' && (
+            <p className="text-white/40 text-sm mt-1">
+              原理講論 · 摂理的同時性から見た復帰摂理時代と復帰摂理延長時代 — 第一・第二イスラエルの対応史。エジプト苦役vsローマ迫害、統一王国vsキリスト王国から民主主義・共産主義の摂理的意味まで
             </p>
           )}
         </div>
