@@ -22,6 +22,7 @@ const TABS = [
   { label: '復帰歴史の年数', value: '復帰歴史の各時代とその年数の形成' },
   { label: '摂理的同時性', value: '摂理的同時性から見た復帰摂理時代と復帰摂理延長時代' },
   { label: 'メシヤ再降臨準備', value: 'メシヤ再降臨準備時代' },
+  { label: '再臨論', value: '再臨論' },
 ]
 
 export default async function HomePage({ searchParams }: Props) {
@@ -129,6 +130,11 @@ export default async function HomePage({ searchParams }: Props) {
           {activeTab === 'メシヤ再降臨準備時代' && (
             <p className="text-white/40 text-sm mt-1">
               原理講論 · メシヤ再降臨準備時代 — 宗教改革から世界大戦まで四百年。ヘレニズム・ヘブライズムの分立、カイン型・アベル型の民主主義革命、二度の大戦を経て共生共栄共義主義の実現へ
+            </p>
+          )}
+          {activeTab === '再臨論' && (
+            <p className="text-white/40 text-sm mt-1">
+              原理講論 · 再臨論 — イエスはいつ、どのように、どこに来られるのか。エリヤ再臨の例が示す「地上誕生による再臨」の真意から、韓国が再臨の地となる五つの理由まで
             </p>
           )}
         </div>
