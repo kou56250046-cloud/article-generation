@@ -19,6 +19,7 @@ const TABS = [
   { label: 'キリスト論', value: 'キリスト論' },
   { label: '復帰基台摂理時代', value: '復帰基台摂理時代' },
   { label: 'モーセとイエス', value: 'モーセとイエスを中心とする復帰摂理' },
+  { label: '復帰歴史の年数', value: '復帰歴史の各時代とその年数の形成' },
 ]
 
 export default async function HomePage({ searchParams }: Props) {
@@ -111,6 +112,11 @@ export default async function HomePage({ searchParams }: Props) {
           {activeTab === 'モーセとイエスを中心とする復帰摂理' && (
             <p className="text-white/40 text-sm mt-1">
               原理講論 · モーセとイエスを中心とする復帰摂理 — ヤコブ・モーセ・イエスの三路程の対応。幕屋・三大試練・霊的カナン復帰から再臨まで
+            </p>
+          )}
+          {activeTab === '復帰歴史の各時代とその年数の形成' && (
+            <p className="text-white/40 text-sm mt-1">
+              原理講論 · 復帰歴史の各時代とその年数の形成 — なぜ歴史は同じ型で繰り返されるのか。象徴・形象・実体の三時代対応と、400年・210年・120年の摂理的構造を解き明かす
             </p>
           )}
         </div>
